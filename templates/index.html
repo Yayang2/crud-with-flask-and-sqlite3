@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD App</title>
+</head>
+<body>
+    <h1>CRUD App</h1>
+    <h2>Add Item</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="description" placeholder="Description">
+        <button type="submit">Add</button>
+    </form>
+    <h2>Items</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                {{ item[1] }} - {{ item[2] }}
+                <a href="/edit/{{ item[0] }}">Edit</a>
+                <a href="/delete/{{ item[0] }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
